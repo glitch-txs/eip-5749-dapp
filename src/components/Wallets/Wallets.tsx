@@ -29,8 +29,6 @@ const Wallets = () => {
     const accounts = await wallet.request?.({method: 'eth_requestAccounts'})
     setAccounts(accounts)
     setProvider(wallet)
-
-    console.log(accounts, wallet)
   }
 
   return (

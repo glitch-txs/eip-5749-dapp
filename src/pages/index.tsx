@@ -15,7 +15,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
-        <h1>EIP-5749</h1>
+        <a href="https://eips.ethereum.org/EIPS/eip-5749" rel='no-referrer' target="_blank"><h1>EIP-5749</h1></a>
         <Wallets/>
       </main>
     </>
