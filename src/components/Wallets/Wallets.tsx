@@ -19,14 +19,10 @@ const Wallets = () => {
   const [injectedWallets, setInjectedWallets] = useState<EVMProviders>()
 
   useEffect(()=>{
-    if(window.evmproviders){
+    setTimeout(()=>{
+      if(window.evmproviders)
       setInjectedWallets(window.evmproviders)
-    }else{
-      setTimeout(()=>{
-        if(window.evmproviders)
-        setInjectedWallets(window.evmproviders)
-      },500)
-    }
+    },500)
   },[])
 
 
