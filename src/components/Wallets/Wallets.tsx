@@ -44,7 +44,7 @@ const Wallets = () => {
           </div>
         )) :
         <div>
-          there are no providers injected in window.evmprovider
+          there are no providers injected in window.evmproviders
         </div>
         }
       </div>
