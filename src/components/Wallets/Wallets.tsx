@@ -21,15 +21,28 @@ const Wallets = () => {
   useEffect(()=>{
     setTimeout(()=>{
       if(window.evmproviders)
+      walletInit()
       setInjectedWallets(window.evmproviders)
     },500)
   },[])
 
 
-  const handleWallet = async(wallet: ProviderWithInfo)=>{
+  async function handleWallet(wallet: ProviderWithInfo){
     const accounts = await wallet.request?.({method: 'eth_requestAccounts'})
     setAccounts(accounts)
     setProvider(wallet)
+  }
+
+  function walletInit(){
+    if(window.evmproviders){
+      //Check if user is connected
+      Object.entries(window.evmproviders).forEach(async([k, v], i)=>{
+        const accounts = await v.request?.({method: 'eth_accounts'})
+        setAccounts(accounts)
+        setProvider(v)
+        return
+      })
+    }
   }
 
   return (
